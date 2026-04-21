@@ -552,6 +552,19 @@
     position: relative;
   }
 
+  .robot-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the photo fills the space without stretching */
+  display: block;
+  transition: transform 0.5s ease;
+  }
+
+  /* Optional: This adds a cool zoom effect when you hover over the robot card */
+  .robot-card:hover .robot-photo {
+    transform: scale(1.05);
+  }
+
   .robots-header {
     display: flex;
     justify-content: space-between;
@@ -1332,11 +1345,7 @@
     <!-- Robot 1: S.A.M. (2026) -->
     <div class="robot-card reveal">
       <div class="robot-img-wrap">
-        <!-- Replace with actual robot photo -->
-        <div class="image-placeholder" style="height:100%">
-          <div class="img-icon">🤖</div>
-          <div>S.A.M. photo</div>
-        </div>
+        <img src="images/sam-robot.jpg" alt="Robot S.A.M." class="robot-photo">
       </div>
       <div class="robot-info">
         <div class="robot-year">2026 · Rebuilt</div>
