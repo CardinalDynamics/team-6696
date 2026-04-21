@@ -123,6 +123,41 @@
 
   .nav-cta:hover { background: var(--red-dark) !important; }
 
+/* ── WORLDS ANNOUNCEMENT BANNER ── */
+  .worlds-banner {
+    background: linear-gradient(90deg, var(--red-dark) 0%, var(--red) 50%, var(--red-dark) 100%);
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    margin-top: 70px; /* This keeps it from being hidden under the fixed nav */
+    font-family: var(--font-cond);
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid #FFD700; /* Gold accent for Championship status */
+    position: relative;
+    z-index: 90;
+  }
+
+  .worlds-banner .btn-mini {
+    background: white;
+    color: var(--red);
+    padding: 5px 12px;
+    text-decoration: none;
+    font-size: 11px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+  }
+
+  .worlds-banner .btn-mini:hover {
+    transform: scale(1.05);
+    background: #f0f0f0;
+  }
+  
   /* ── HERO ── */
   #hero {
     height: 100vh;
@@ -1146,6 +1181,11 @@
   </ul>
 </nav>
 
+<div class="worlds-banner">
+  <span>🚀 CHAMPIONSHIP BOUND! We've qualified for Worlds in Houston!</span>
+  <a href="#support" class="btn-mini">Support our trip →</a>
+</div>
+  
 <!-- ── HERO ── -->
 <section id="hero">
   <div class="hero-bg"></div>
