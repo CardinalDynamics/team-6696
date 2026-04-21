@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardinal Dynamics 6696 | Corbett High School FRC Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C8102E;
+    --red-dark: #9b0c22;
+    --red-glow: rgba(200,16,46,0.3);
+    --black: #080808;
+    --black2: #111111;
+    --black3: #1a1a1a;
+    --white: #f5f5f0;
+    --gray: #888;
+    --gray2: #555;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+    --font-cond: 'Barlow Condensed', sans-serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--red); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 70px;
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,16,46,0.2);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 42px; height: 42px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo-text .team-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+
+  .nav-logo-text .team-number {
+    font-family: var(--font-cond);
+    font-size: 12px;
+    color: var(--red);
+    letter-spacing: 3px;
+    font-weight: 600;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--gray);
+    font-family: var(--font-cond);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--red) !important;
+    color: var(--white) !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-dark) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 80px 80px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.6) 40%, rgba(8,8,8,0.2) 100%),
+      linear-gradient(to right, rgba(8,8,8,0.8) 0%, transparent 60%),
+      /* Replace this URL with your actual team photo */
+      url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1600&q=80') center/cover no-repeat;
+  }
+
+  /* Diagonal red accent stripe */
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--red);
+    box-shadow: 0 0 40px var(--red-glow);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+  }
+
+  .hero-tag {
+    font-family: var(--font-cond);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  h1.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 10vw, 120px);
+    line-height: 0.9;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+  }
+
+  h1.hero-title span {
+    color: var(--red);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(245,245,240,0.7);
+    max-width: 480px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-cond);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 2px;
+    transition: all 0.2s;
+    border: 2px solid var(--red);
+  }
+
+  .btn-primary:hover {
+    background: var(--red-dark);
+    border-color: var(--red-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-cond);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 2px;
+    border: 2px solid rgba(245,245,240,0.3);
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    position: absolute;
+    right: 80px;
+    bottom: 80px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: right;
+  }
+
+  .stat-item .stat-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .stat-item .stat-label {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gray);
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 80px; }
+
+  .section-tag {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--black2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #about::before {
+    content: '6696';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-size: 300px;
+    color: rgba(200,16,46,0.04);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,245,240,0.75);
+    margin-bottom: 20px;
+  }
+
+  .about-text p strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .about-image-frame {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--black3);
+    border: 1px solid var(--black3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-image-frame::before {
+    content: '';
+    position: absolute;
+    top: -8px; left: -8px; right: 8px; bottom: 8px;
+    border: 2px solid var(--red);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--gray2);
+    font-family: var(--font-cond);
+    font-size: 13px;
+    letter-spacing: 2px;
+    background: var(--black3);
+  }
+
+  .image-placeholder .img-icon { font-size: 40px; opacity: 0.4; }
+
+  /* ── CURRENT SEASON BANNER ── */
+  #current-season {
+    padding: 60px 80px;
+    background: var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #current-season::before {
+    content: 'REBUILT';
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-size: 180px;
+    color: rgba(0,0,0,0.15);
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .season-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .season-left .season-eyebrow {
+    font-family: var(--font-cond);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+
+  .season-left h2 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 80px);
+    letter-spacing: 4px;
+    line-height: 1;
+  }
+
+  .season-events {
+    display: flex;
+    gap: 32px;
+  }
+
+  .season-event {
+    background: rgba(0,0,0,0.2);
+    padding: 20px 28px;
+    border-radius: 2px;
+    border-left: 3px solid rgba(255,255,255,0.4);
+  }
+
+  .season-event .ev-week {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 4px;
+  }
+
+  .season-event .ev-name {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  /* ── ROBOTS ── */
+  #robots {
+    background: var(--black);
+    position: relative;
+  }
+
+  .robots-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+
+  .robots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2px;
+  }
+
+  .robot-card {
+    position: relative;
+    background: var(--black2);
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .robot-card:hover .robot-overlay { opacity: 1; }
+  .robot-card:hover .robot-img-wrap img { transform: scale(1.05); }
+
+  .robot-img-wrap {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--black3);
+  }
+
+  .robot-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .robot-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(200,16,46,0.9) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    display: flex;
+    align-items: flex-end;
+    padding: 28px;
+  }
+
+  .robot-info {
+    padding: 24px 28px 28px;
+  }
+
+  .robot-year {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+
+  .robot-name {
+    font-family: var(--font-display);
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .robot-game {
+    font-size: 13px;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  .robot-desc {
+    font-size: 14px;
+    color: rgba(245,245,240,0.6);
+    line-height: 1.6;
+    margin-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 12px;
+  }
+
+  /* ── SEASON HISTORY ── */
+  #history {
+    background: var(--black2);
+  }
+
+  .history-table {
+    margin-top: 48px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .history-header-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr 1fr;
+    gap: 0;
+    background: var(--red);
+    padding: 14px 24px;
+  }
+
+  .history-header-row span {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .history-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr 1fr;
+    gap: 0;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.2s;
+    align-items: center;
+  }
+
+  .history-row:hover { background: rgba(200,16,46,0.06); }
+
+  .history-row .season-yr {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--red);
+    letter-spacing: 1px;
+  }
+
+  .history-row .season-game {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .history-row .season-events-list {
+    font-size: 13px;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  .season-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(200,16,46,0.15);
+    border: 1px solid rgba(200,16,46,0.3);
+    color: var(--red);
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .season-badge.current {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+  }
+
+  /* ── MEET THE TEAM ── */
+  #team {
+    background: var(--black);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .member-card {
+    background: var(--black2);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .member-card:hover .member-photo { filter: none; }
+
+  .member-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--black3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: var(--gray2);
+    filter: grayscale(40%);
+    transition: filter 0.4s;
+    overflow: hidden;
+  }
+
+  .member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .member-info {
+    padding: 16px 18px;
+    border-left: 3px solid var(--red);
+  }
+
+  .member-name {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 3px;
+  }
+
+  .member-role {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .member-grade {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 3px;
+  }
+
+  .team-placeholder {
+    grid-column: 1 / -1;
+    padding: 60px;
+    text-align: center;
+    border: 1px dashed rgba(200,16,46,0.2);
+    color: var(--gray);
+    font-family: var(--font-cond);
+    letter-spacing: 2px;
+    font-size: 13px;
+    display: none; /* show when no members added */
+  }
+
+  /* ── SPONSORS ── */
+  #sponsors {
+    background: var(--black2);
+  }
+
+  .sponsors-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 60px;
+    align-items: center;
+  }
+
+  .sponsors-intro p {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(245,245,240,0.7);
+    line-height: 1.8;
+  }
+
+  .sponsor-package {
+    background: var(--black3);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 32px;
+  }
+
+  .package-title {
+    font-family: var(--font-cond);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .package-tier {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+  }
+
+  .package-tier:last-child { border-bottom: none; }
+
+  .tier-name { font-weight: 600; }
+
+  .tier-amount {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--red);
+  }
+
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2px;
+  }
+
+  .sponsor-card {
+    background: var(--black3);
+    padding: 40px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.04);
+    transition: all 0.3s;
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  .sponsor-card:hover {
+    background: rgba(200,16,46,0.08);
+    border-color: rgba(200,16,46,0.3);
+    transform: translateY(-4px);
+  }
+
+  .sponsor-logo-area {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sponsor-logo-area img {
+    max-height: 70px;
+    max-width: 180px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(1.5);
+    transition: filter 0.3s;
+  }
+
+  .sponsor-card:hover .sponsor-logo-area img {
+    filter: grayscale(0%) brightness(1);
+  }
+
+  .sponsor-name-text {
+    font-family: var(--font-cond);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--gray);
+  }
+
+  /* ── SUPPORT ── */
+  #support {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #support::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--red), transparent);
+  }
+
+  .support-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .support-left h2 { margin-bottom: 20px; }
+
+  .support-left p {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(245,245,240,0.7);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .support-ways {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .support-way {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: var(--black2);
+    border-left: 3px solid var(--red);
+  }
+
+  .way-icon { font-size: 24px; flex-shrink: 0; }
+
+  .way-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .way-desc {
+    font-size: 13px;
+    color: var(--gray);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .support-right {
+    position: sticky;
+    top: 100px;
+  }
+
+  .donate-card {
+    background: var(--black2);
+    border: 1px solid rgba(200,16,46,0.3);
+    padding: 40px;
+    text-align: center;
+  }
+
+  .donate-card h3 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .donate-card p {
+    font-size: 14px;
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .qr-placeholder {
+    width: 160px;
+    height: 160px;
+    background: white;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+  }
+
+  .donate-or {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .donate-or::before, .donate-or::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .donate-or::before { right: calc(50% + 20px); }
+  .donate-or::after { left: calc(50% + 20px); }
+
+  .contact-email {
+    font-family: var(--font-cond);
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(200,16,46,0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .contact-email:hover { border-color: var(--red); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black2);
+    border-top: 1px solid rgba(200,16,46,0.2);
+    padding: 60px 80px 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand .footer-logo-name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+  }
+
+  .footer-brand .footer-logo-num {
+    font-family: var(--font-cond);
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray);
+    line-height: 1.8;
+    max-width: 240px;
+  }
+
+  .footer-col h4 {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: var(--gray2);
+    font-weight: 300;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.2s;
+  }
+
+  .social-link:hover {
+    border-color: var(--red);
+    color: var(--white);
+    background: rgba(200,16,46,0.1);
+  }
+
+  /* ── DIVIDER ── */
+  .red-divider {
+    height: 4px;
+    background: var(--red);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .hero-content > * { animation: fadeUp 0.8s ease forwards; }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.55s; }
+  .hero-stats { animation: fadeUp 0.8s 0.6s ease forwards; opacity: 0; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    section { padding: 70px 24px; }
+    #hero { padding: 0 24px 60px; }
+    .hero-stats { right: 24px; bottom: 60px; }
+    .about-grid, .sponsors-intro, .support-grid, .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .history-header-row, .history-row { grid-template-columns: 80px 1fr 1fr; }
+    .history-row td:last-child, .history-header-row span:last-child { display: none; }
+    #current-season { padding: 40px 24px; }
+    .season-inner { flex-direction: column; align-items: flex-start; }
+    footer { padding: 60px 24px 32px; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    h1.hero-title { font-size: 52px; }
+    .hero-stats { display: none; }
+    .robots-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-icon">🐦</div>
+    <div class="nav-logo-text">
+      <span class="team-name">Cardinal Dynamics</span>
+      <span class="team-number">FRC Team 6696</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#robots">Robots</a></li>
+    <li><a href="#history">Season History</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#support" class="nav-cta">Support Us</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Corbett High School · Corbett, Oregon</div>
+    <h1 class="hero-title">Cardinal<br><span>Dynamics</span></h1>
+    <p class="hero-sub">
+      Competing in FIRST Robotics Competition since 2017, we are a student-led team building industrial-scale robots to compete on a global stage.
+    </p>
+    <div class="hero-buttons">
+      <a href="#robots" class="btn-primary">🤖 Meet Our Robots</a>
+      <a href="#support" class="btn-secondary">Support the Team →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">6696</div>
+      <div class="stat-label">Team Number</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Competitions</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">'17</div>
+      <div class="stat-label">Founded</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CURRENT SEASON BANNER ── -->
+<div id="current-season">
+  <div class="season-inner">
+    <div class="season-left">
+      <div class="season-eyebrow">2025–2026 Season</div>
+      <h2>REBUILT</h2>
+    </div>
+    <div class="season-events">
+      <div class="season-event">
+        <div class="ev-week">Week 2 Event</div>
+        <div class="ev-name">Wilsonville</div>
+      </div>
+      <div class="season-event">
+        <div class="ev-week">Week 4 Event</div>
+        <div class="ev-name">Clackamas</div>
+      </div>
+    </div>
+    <a href="#history" class="btn-primary" style="background:rgba(0,0,0,0.3);border-color:rgba(255,255,255,0.4);">Full Schedule →</a>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-tag">Who We Are</div>
+      <h2 class="section-title">Built by<br>Students.</h2>
+      <p>
+        Cardinal Dynamics is a <strong>FIRST Robotics Competition (FRC) team</strong> based at Corbett High School in Corbett, Oregon. We were founded in 2017 and operate as an optional class — open to any student who's ready to tackle engineering challenges.
+      </p>
+      <p>
+        Every year, FIRST releases a new game challenge in January, and teams have just <strong>6 weeks</strong> to design, build, program, and test an industrial-size robot. We compete against thousands of other high school teams from across the globe.
+      </p>
+      <p>
+        We're a small but mighty team — students handle everything from mechanical design and CAD to software and strategy. Every member has a real job, real responsibility, and real impact.
+      </p>
+      <a href="https://www.firstinspires.org/robotics/frc" target="_blank" class="btn-secondary" style="margin-top:16px; display:inline-flex;">Learn About FRC →</a>
+    </div>
+    <div class="about-image reveal">
+      <div class="about-image-frame">
+        <!-- Replace src with your team photo URL -->
+        <div class="image-placeholder">
+          <div class="img-icon">📸</div>
+          <div>Replace with team photo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="red-divider"></div>
+
+<!-- ── ROBOTS ── -->
+<section id="robots">
+  <div class="robots-header">
+    <div>
+      <div class="section-tag">Engineering</div>
+      <h2 class="section-title">Our Robots</h2>
+    </div>
+    <p style="max-width:320px;font-size:14px;color:var(--gray);font-weight:300;text-align:right;line-height:1.7;">
+      Each robot is designed, built, and programmed entirely by our students in under 6 weeks.
+    </p>
+  </div>
+
+  <div class="robots-grid">
+
+    <!-- Robot 1: S.A.M. (2026) -->
+    <div class="robot-card reveal">
+      <div class="robot-img-wrap">
+        <!-- Replace with actual robot photo -->
+        <div class="image-placeholder" style="height:100%">
+          <div class="img-icon">🤖</div>
+          <div>S.A.M. photo</div>
+        </div>
+      </div>
+      <div class="robot-info">
+        <div class="robot-year">2026 · Rebuilt</div>
+        <div class="robot-name">"S.A.M."</div>
+        <div class="robot-game">FIRST Robotics Competition 2026</div>
+        <div class="robot-desc">
+          Our 2026 robot, built for the Rebuilt game challenge. Add a few sentences describing what S.A.M. is designed to do, its key mechanisms, or what the team is proud of.
+        </div>
+      </div>
+    </div>
+
+    <!-- Robot 2: ATM (2025) -->
+    <div class="robot-card reveal">
+      <div class="robot-img-wrap">
+        <!-- Replace with actual robot photo -->
+        <div class="image-placeholder" style="height:100%">
+          <div class="img-icon">🤖</div>
+          <div>ATM photo</div>
+        </div>
+      </div>
+      <div class="robot-info">
+        <div class="robot-year">2025 · Reefscape</div>
+        <div class="robot-name">"ATM"</div>
+        <div class="robot-game">FIRST Robotics Competition 2025</div>
+        <div class="robot-desc">
+          Our 2025 Reefscape robot. Competed at Clackamas (Week 2) and Wilsonville (Week 4). Add a description of ATM's design, capabilities, or memorable moments from the season.
+        </div>
+      </div>
+    </div>
+
+    <!-- Robot 3: Past robot placeholder -->
+    <div class="robot-card reveal">
+      <div class="robot-img-wrap">
+        <div class="image-placeholder" style="height:100%">
+          <div class="img-icon">🤖</div>
+          <div>Add older robot</div>
+        </div>
+      </div>
+      <div class="robot-info">
+        <div class="robot-year">2024 · Crescendo</div>
+        <div class="robot-name">"[Name]"</div>
+        <div class="robot-game">FIRST Robotics Competition 2024</div>
+        <div class="robot-desc">
+          Add your 2024 robot's name, photo, and description here. Documenting each robot builds a great legacy archive.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SEASON HISTORY ── -->
+<section id="history">
+  <div class="section-tag">Track Record</div>
+  <h2 class="section-title">Season History</h2>
+
+  <div class="history-table reveal">
+    <div class="history-header-row">
+      <span>Year</span>
+      <span>Game</span>
+      <span>Events</span>
+      <span>Status</span>
+    </div>
+    <div class="history-row">
+      <div class="season-yr">2026</div>
+      <div class="season-game">Rebuilt</div>
+      <div class="season-events-list">Wilsonville · Clackamas</div>
+      <div><span class="season-badge current">In Progress</span></div>
+    </div>
+    <div class="history-row">
+      <div class="season-yr">2025</div>
+      <div class="season-game">Reefscape</div>
+      <div class="season-events-list">Clackamas · Wilsonville</div>
+      <div><span class="season-badge">Completed</span></div>
+    </div>
+    <div class="history-row">
+      <div class="season-yr">2024</div>
+      <div class="season-game">Crescendo</div>
+      <div class="season-events-list">Add events here</div>
+      <div><span class="season-badge">Completed</span></div>
+    </div>
+    <div class="history-row">
+      <div class="season-yr">2023</div>
+      <div class="season-game">Charged Up</div>
+      <div class="season-events-list">Add events here</div>
+      <div><span class="season-badge">Completed</span></div>
+    </div>
+    <div class="history-row">
+      <div class="season-yr">2022</div>
+      <div class="season-game">Rapid React</div>
+      <div class="season-events-list">Add events here</div>
+      <div><span class="season-badge">Completed</span></div>
+    </div>
+    <div class="history-row">
+      <div class="season-yr">2020</div>
+      <div class="season-game">Infinite Recharge</div>
+      <div class="season-events-list">Season cancelled (COVID-19)</div>
+      <div><span class="season-badge">Cancelled</span></div>
+    </div>
+    <div class="history-row">
+      <div class="season-yr">2019</div>
+      <div class="season-game">Destination: Deep Space</div>
+      <div class="season-events-list">Add events here</div>
+      <div><span class="season-badge">Completed</span></div>
+    </div>
+    <div class="history-row">
+      <div class="season-yr">2018</div>
+      <div class="season-game">FIRST Power Up</div>
+      <div class="season-events-list">Add events here</div>
+      <div><span class="season-badge">Completed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MEET THE TEAM ── -->
+<section id="team">
+  <div class="section-tag">The People</div>
+  <h2 class="section-title">Meet the Team</h2>
+  <p style="color:var(--gray);font-weight:300;font-size:15px;margin-top:8px;margin-bottom:48px;max-width:500px;line-height:1.7;">
+    Every robot is built by real students. Here's the crew behind Cardinal Dynamics 2025–26.
+  </p>
+
+  <div class="team-grid">
+    <!-- Coaches -->
+    <div class="member-card reveal">
+      <div class="member-photo">👨‍🏫</div>
+      <div class="member-info">
+        <div class="member-name">Coach Goude</div>
+        <div class="member-role">Head Coach</div>
+        <div class="member-grade">Faculty Mentor</div>
+      </div>
+    </div>
+    <div class="member-card reveal">
+      <div class="member-photo">👨‍🏫</div>
+      <div class="member-info">
+        <div class="member-name">Coach Chiu</div>
+        <div class="member-role">Assistant Coach</div>
+        <div class="member-grade">Faculty Mentor</div>
+      </div>
+    </div>
+
+    <!-- Student placeholders — replace with real names/roles -->
+    <div class="member-card reveal">
+      <div class="member-photo">🎓</div>
+      <div class="member-info">
+        <div class="member-name">Student Name</div>
+        <div class="member-role">Team Captain</div>
+        <div class="member-grade">Grade 12</div>
+      </div>
+    </div>
+    <div class="member-card reveal">
+      <div class="member-photo">💻</div>
+      <div class="member-info">
+        <div class="member-name">Student Name</div>
+        <div class="member-role">Lead Programmer</div>
+        <div class="member-grade">Grade 11</div>
+      </div>
+    </div>
+    <div class="member-card reveal">
+      <div class="member-photo">🔧</div>
+      <div class="member-info">
+        <div class="member-name">Student Name</div>
+        <div class="member-role">Mechanical Lead</div>
+        <div class="member-grade">Grade 12</div>
+      </div>
+    </div>
+    <div class="member-card reveal">
+      <div class="member-photo">🎮</div>
+      <div class="member-info">
+        <div class="member-name">Student Name</div>
+        <div class="member-role">Drive Team</div>
+        <div class="member-grade">Grade 10</div>
+      </div>
+    </div>
+    <div class="member-card reveal">
+      <div class="member-photo">📐</div>
+      <div class="member-info">
+        <div class="member-name">Student Name</div>
+        <div class="member-role">CAD / Design</div>
+        <div class="member-grade">Grade 11</div>
+      </div>
+    </div>
+    <div class="member-card reveal">
+      <div class="member-photo">📢</div>
+      <div class="member-info">
+        <div class="member-name">Student Name</div>
+        <div class="member-role">Outreach Lead</div>
+        <div class="member-grade">Grade 10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPONSORS ── -->
+<section id="sponsors">
+  <div class="sponsors-intro">
+    <div>
+      <div class="section-tag">Partners</div>
+      <h2 class="section-title">Our Sponsors</h2>
+      <p>
+        Competing in FRC costs around <strong style="color:var(--white)">$20,000 per season</strong>. None of this would be possible without the generous support of our sponsors — businesses and organizations who believe in the next generation of engineers.
+      </p>
+      <a href="#support" class="btn-primary" style="margin-top:28px;display:inline-flex;">Become a Sponsor →</a>
+    </div>
+    <div class="sponsor-package">
+      <div class="package-title">Sponsorship Tiers</div>
+      <div class="package-tier">
+        <span class="tier-name">🥇 Gold Sponsor</span>
+        <span class="tier-amount">$2,500+</span>
+      </div>
+      <div class="package-tier">
+        <span class="tier-name">🥈 Silver Sponsor</span>
+        <span class="tier-amount">$1,000+</span>
+      </div>
+      <div class="package-tier">
+        <span class="tier-name">🥉 Bronze Sponsor</span>
+        <span class="tier-amount">$500+</span>
+      </div>
+      <div class="package-tier">
+        <span class="tier-name">🤝 In-Kind Donor</span>
+        <span class="tier-amount">Materials / Tools</span>
+      </div>
+      <p style="font-size:12px;color:var(--gray);margin-top:16px;line-height:1.6;">
+        All sponsors receive logo placement on our robot, website, and team banner. Contact us for a full sponsorship packet.
+      </p>
+    </div>
+  </div>
+
+  <div class="sponsors-grid">
+    <a href="https://argosyfdn.org" target="_blank" class="sponsor-card reveal">
+      <div class="sponsor-logo-area">
+        <div style="font-family:var(--font-display);font-size:28px;letter-spacing:2px;color:var(--gray)">ARGOSY</div>
+      </div>
+      <div class="sponsor-name-text">Argosy Foundation</div>
+    </a>
+    <a href="https://www.microchip.com" target="_blank" class="sponsor-card reveal">
+      <div class="sponsor-logo-area">
+        <div style="font-family:var(--font-cond);font-size:22px;font-weight:700;letter-spacing:1px;color:var(--gray)">MICROCHIP</div>
+      </div>
+      <div class="sponsor-name-text">Microchip Technology</div>
+    </a>
+    <a href="https://www.relianceconnects.com" target="_blank" class="sponsor-card reveal">
+      <div class="sponsor-logo-area">
+        <div style="font-family:var(--font-cond);font-size:20px;font-weight:700;letter-spacing:1px;color:var(--gray)">RELIANCE CONNECTS</div>
+      </div>
+      <div class="sponsor-name-text">Reliance Connects</div>
+    </a>
+    <a href="#support" class="sponsor-card reveal" style="border:1px dashed rgba(200,16,46,0.25);">
+      <div class="sponsor-logo-area">
+        <div style="font-size:32px;color:var(--gray2)">＋</div>
+      </div>
+      <div class="sponsor-name-text" style="color:var(--red)">Your Company Here</div>
+    </a>
+  </div>
+</section>
+
+<!-- ── SUPPORT ── -->
+<section id="support">
+  <div class="support-grid">
+    <div class="support-left">
+      <div class="section-tag">Help Us Compete</div>
+      <h2 class="section-title">Support<br>the Team</h2>
+      <p>
+        Robotics isn't cheap. Building a competition-ready robot costs around $20,000 per season — covering parts, registration fees, travel, and tools. Your support directly funds the next generation of Oregon engineers and makers.
+      </p>
+
+      <div class="support-ways">
+        <div class="support-way">
+          <div class="way-icon">💳</div>
+          <div>
+            <div class="way-title">Donate via MySchoolBucks</div>
+            <div class="way-desc">Make a secure online donation directly to the Cardinal Dynamics robotics program through the Corbett School District's payment portal.</div>
+          </div>
+        </div>
+        <div class="support-way">
+          <div class="way-icon">🤝</div>
+          <div>
+            <div class="way-title">Corporate Sponsorship</div>
+            <div class="way-desc">Partner with us for a full season. Your logo goes on our robot, banner, and website. Contact us for a sponsorship packet.</div>
+          </div>
+        </div>
+        <div class="support-way">
+          <div class="way-icon">🛠️</div>
+          <div>
+            <div class="way-title">In-Kind Donations</div>
+            <div class="way-desc">Donate materials, tools, or professional expertise. We're always in need of metal stock, fasteners, electronics components, and mentors with engineering experience.</div>
+          </div>
+        </div>
+        <div class="support-way">
+          <div class="way-icon">📣</div>
+          <div>
+            <div class="way-title">Spread the Word</div>
+            <div class="way-desc">Follow us on Instagram and TikTok, share our posts, and tell your network about Cardinal Dynamics. Visibility helps us find sponsors and recruits.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:8px;">
+        <p style="font-size:13px;color:var(--gray);margin-bottom:8px;">Get in touch:</p>
+        <a href="mailto:robotics@corbett.k12.or.us" class="contact-email">robotics@corbett.k12.or.us</a>
+      </div>
+    </div>
+
+    <div class="support-right">
+      <div class="donate-card reveal">
+        <h3>Donate Now</h3>
+        <p>Scan the QR code to donate via MySchoolBucks, or contact us directly for corporate sponsorship information.</p>
+        <div class="qr-placeholder">
+          <!-- Replace this div with an <img> of your actual QR code -->
+          <span style="font-size:14px;color:#ccc;font-family:var(--font-cond);letter-spacing:1px;text-align:center;">QR Code<br>Here</span>
+        </div>
+        <div class="donate-or">or</div>
+        <div style="margin-top:16px;">
+          <a href="mailto:robotics@corbett.k12.or.us" class="btn-primary" style="width:100%;justify-content:center;display:flex;">Email Us</a>
+        </div>
+        <p style="margin-top:20px;font-size:12px;color:var(--gray2);">
+          Donations support Corbett School District FRC Team 6696 — Cardinal Dynamics.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-name">Cardinal Dynamics</div>
+      <div class="footer-logo-num">FRC Team 6696</div>
+      <p>A student-run FIRST Robotics Competition team at Corbett High School, Corbett, Oregon. Building robots, building futures.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="#about">About</a>
+      <a href="#robots">Robots</a>
+      <a href="#history">Season History</a>
+      <a href="#team">Meet the Team</a>
+      <a href="#sponsors">Sponsors</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get Involved</h4>
+      <a href="#support">Donate</a>
+      <a href="#support">Sponsor Us</a>
+      <a href="mailto:robotics@corbett.k12.or.us">Join the Team</a>
+      <a href="mailto:robotics@corbett.k12.or.us">Volunteer</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:robotics@corbett.k12.or.us">robotics@corbett.k12.or.us</a>
+      <a href="mailto:zgoude@corbett.k12.or.us">Coach Goude</a>
+      <a href="mailto:dchiu@corbett.k12.or.us">Coach Chiu</a>
+      <a href="https://www.firstinspires.org" target="_blank">FIRST Inspires</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Cardinal Dynamics FRC 6696 · Corbett High School · Designed by our students</p>
+    <div class="social-links">
+      <a href="#" class="social-link" title="Instagram" target="_blank">📷</a>
+      <a href="#" class="social-link" title="TikTok" target="_blank">🎵</a>
+      <a href="#" class="social-link" title="GitHub" target="_blank">💻</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${(i % 4) * 0.08}s`;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) {
+        current = sec.id;
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--white)' : '';
+    });
+  });
+</script>
+</body>
+</html>
