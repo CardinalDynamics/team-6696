@@ -957,14 +957,13 @@
   }
 
   .qr-placeholder {
-    width: 160px;
-    height: 160px;
+    width: 180px;
     background: white;
-    margin: 0 auto 32px;
+    margin: 0 auto 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 60px;
+    border-radius: 4px;
   }
 
   .donate-or {
@@ -1596,17 +1595,19 @@
     <div class="support-right">
       <div class="donate-card reveal">
         <h3>Donate Now</h3>
-        <p>Scan the QR code to donate via MySchoolBucks, or contact us directly for corporate sponsorship information.</p>
-        <div class="qr-placeholder">
-          <!-- Replace this div with an <img> of your actual QR code -->
-          <span style="font-size:14px;color:#ccc;font-family:var(--font-cond);letter-spacing:1px;text-align:center;">QR Code<br>Here</span>
+        <p>Scan the QR code to donate via MySchoolBucks, or use the link below to support our road to Worlds.</p>
+        <div class="qr-placeholder" style="padding: 10px; background: white;">
+          <img src="images/qr-code.png" alt="Donate QR Code" style="width: 100%; height: auto; display: block;">
         </div>
-        <div class="donate-or">or</div>
+        <a href="https://tinyurl.com/CorbettRobotics" target="_blank" class="btn-primary" style="width:100%; justify-content:center; display:flex; margin-bottom: 16px;">
+          Donate via TinyURL →
+        </a>
+        <div class="donate-or">or</div>      
         <div style="margin-top:16px;">
-          <a href="mailto:robotics@corbett.k12.or.us" class="btn-primary" style="width:100%;justify-content:center;display:flex;">Email Us</a>
+          <a href="mailto:robotics@corbett.k12.or.us" class="btn-secondary" style="width:100%; justify-content:center; display:flex;">Email for Sponsorship</a>
         </div>
-        <p style="margin-top:20px;font-size:12px;color:var(--gray2);">
-          Donations support Corbett School District FRC Team 6696 — Cardinal Dynamics.
+        <p style="margin-top:20px; font-size: 11px; color: var(--gray2); letter-spacing: 0.5px;">
+          Direct Link: tinyurl.com/CorbettRobotics
         </p>
       </div>
     </div>
