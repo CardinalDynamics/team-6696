@@ -55,11 +55,17 @@
     transition: all 0.3s;
   }
 
+  .nav-logo-img {
+    height: 40px; /* Adjust this to make your logo bigger or smaller */
+    width: auto;
+    display: block;
+    margin-right: 12px;
+  }
+
+  /* This ensures the text stays aligned vertically with your logo */
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    text-decoration: none;
   }
 
   .nav-logo-icon {
@@ -1194,12 +1200,12 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="#hero" class="nav-logo">
-    <div class="nav-logo-icon">🐦</div>
-    <div class="nav-logo-text">
-      <span class="team-name">Cardinal Dynamics</span>
-      <span class="team-number">FRC Team 6696</span>
-    </div>
-  </a>
+  <img src="images/robotics2022.png" alt="6696 Logo" class="nav-logo-img">
+  <div class="nav-logo-text">
+    <span class="team-name">Cardinal Dynamics</span>
+    <span class="team-number">6696</span>
+  </div>
+</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#robots">Robots</a></li>
@@ -1294,7 +1300,7 @@
           <img src="images/shop-2.jpg" alt="Building the chassis">
         </div>
         <div class="carousel-slide fade">
-          <img src="images/team-photo.jpg" alt="Cardinal Dynamics Team">
+          <img src="images/shop-3.jpg" alt="Cardinal Dynamics Team">
         </div>
         <div style="text-align:center; position: absolute; bottom: 15px; width: 100%;">
           <span class="dot"></span> 
