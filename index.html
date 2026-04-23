@@ -130,38 +130,54 @@
   .nav-cta:hover { background: var(--red-dark) !important; }
 
 /* ── WORLDS ANNOUNCEMENT BANNER ── */
+ /* ── UPDATED WORLDS ANNOUNCEMENT BANNER (DOUBLE SIZE) ── */
   .worlds-banner {
     background: linear-gradient(90deg, var(--red-dark) 0%, var(--red) 50%, var(--red-dark) 100%);
     color: white;
     text-align: center;
-    padding: 12px 20px;
-    margin-top: 70px; /* This keeps it from being hidden under the fixed nav */
+    
+    /* Increased padding: 30px top/bottom makes it much taller */
+    padding: 30px 20px; 
+    
+    margin-top: 70px; 
     font-family: var(--font-cond);
+    
+    /* Bigger font size */
+    font-size: 24px; 
+    
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    border-bottom: 2px solid #FFD700; /* Gold accent for Championship status */
+    flex-direction: column; /* This stacks the text and button on mobile */
+    gap: 20px;
+    border-bottom: 4px solid #FFD700; /* Thicker gold border */
     position: relative;
     z-index: 90;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Adds depth */
+  }
+
+  .worlds-banner span {
+    max-width: 800px;
+    line-height: 1.2;
   }
 
   .worlds-banner .btn-mini {
-    background: white;
-    color: var(--red);
-    padding: 5px 12px;
+    background: #FFD700; /* Matching the gold */
+    color: black;
+    padding: 10px 25px; /* Bigger button */
     text-decoration: none;
-    font-size: 11px;
-    border-radius: 2px;
+    font-size: 16px; /* Bigger button text */
+    font-weight: 800;
+    border-radius: 4px;
     text-transform: uppercase;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
   }
 
   .worlds-banner .btn-mini:hover {
-    transform: scale(1.05);
-    background: #f0f0f0;
+    transform: scale(1.1);
+    background: white;
   }
   
   /* ── HERO ── */
