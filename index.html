@@ -194,11 +194,34 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background: 
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
       linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.6) 40%, rgba(8,8,8,0.2) 100%),
-      linear-gradient(to right, rgba(8,8,8,0.8) 0%, transparent 60%),
-      /* Replace this URL with your actual team photo */
-      url('https://live.staticflickr.com/65535/55179776453_cf61e62a85_h.jpg') center/cover no-repeat;
+      linear-gradient(to right, rgba(8,8,8,0.8) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 1.5s ease, transform 7s ease;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+    transform: scale(1);
   }
 
   /* Diagonal red accent stripe */
@@ -206,6 +229,7 @@
     content: '';
     position: absolute;
     top: 0; right: 0;
+    z-index: 3;
     width: 6px;
     height: 100%;
     background: var(--red);
@@ -443,7 +467,7 @@
  /* ── ABOUT SECTION CAROUSEL ── */
   .carousel-container {
     max-width: 100%;
-    height: 550px;
+    height: 100%;
     position: relative;
     margin: auto;
     overflow: hidden;
@@ -1229,7 +1253,7 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="#hero" class="nav-logo">
-  <img src="images/robotics2022.png" alt="6696 Logo" class="nav-logo-img">
+  <img src="images/brand/robotics2022.png" alt="6696 Logo" class="nav-logo-img">
   <div class="nav-logo-text">
     <span class="team-name">Cardinal Dynamics</span>
     <span class="team-number">6696</span>
@@ -1252,7 +1276,14 @@
   
 <!-- ── HERO ── -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-slide active" style="background-image:url('images/hero/current-team-photo.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/hero/hero-01.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/hero/hero-02.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/hero/hero-03.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/hero/hero-04.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/hero/hero-05.jpg')"></div>
+  </div>
   <div class="hero-content">
     <div class="hero-tag">Corbett High School · Corbett, Oregon</div>
     <h1 class="hero-title">Cardinal<br><span>Dynamics</span></h1>
@@ -1331,15 +1362,35 @@
         <!-- Replace src with your team photo URL -->
         <div class="carousel-container">
           <div class="carousel-slide fade">
-            <img src="images/shop-1.jpg" alt="Team working in the shop">
+            <img src="images/carousel/shop-1.jpg" alt="Team working in the shop" loading="lazy">
           </div>
         <div class="carousel-slide fade">
-          <img src="images/shop-2.jpg" alt="Building the chassis">
+          <img src="images/carousel/shop-2.jpg" alt="Building the chassis" loading="lazy">
         </div>
         <div class="carousel-slide fade">
-          <img src="images/shop-3.jpg" alt="Cardinal Dynamics Team">
+          <img src="images/carousel/shop-3.jpg" alt="Cardinal Dynamics Team" loading="lazy">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/carousel/team-01.jpg" alt="Cardinal Dynamics students at competition" loading="lazy">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/carousel/team-02.jpg" alt="Cardinal Dynamics team members working together" loading="lazy">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/carousel/team-03.jpg" alt="Cardinal Dynamics students with the robot" loading="lazy">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/carousel/team-04.jpg" alt="Cardinal Dynamics competition photo" loading="lazy">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/carousel/team-05.jpg" alt="Cardinal Dynamics team photo" loading="lazy">
         </div>
         <div style="text-align:center; position: absolute; bottom: 15px; width: 100%;">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
           <span class="dot"></span> 
           <span class="dot"></span> 
           <span class="dot"></span> 
@@ -1369,7 +1420,7 @@
     <!-- Robot 1: S.A.M. (2026) -->
     <div class="robot-card reveal">
       <div class="robot-img-wrap">
-        <img src="images/sam-robot.jpg" alt="Robot S.A.M." class="robot-photo">
+        <img src="images/robots/sam-robot.jpg" alt="Robot S.A.M." class="robot-photo" loading="lazy">
       </div>
       <div class="robot-info">
         <div class="robot-year">2026 · Rebuilt</div>
@@ -1384,7 +1435,7 @@
     <!-- Robot 2: ATM (2025) -->
     <div class="robot-card reveal">
       <div class="robot-img-wrap">
-        <img src="images/ATM-robot.png" alt="Robot ATM" class="robot-photo">
+        <img src="images/robots/atm-robot.png" alt="Robot ATM" class="robot-photo" loading="lazy">
       </div>
       <div class="robot-info">
         <div class="robot-year">2025 · Reefscape</div>
@@ -1399,7 +1450,7 @@
     <!-- Robot 3: Past robot placeholder -->
      <div class="robot-card reveal">
       <div class="robot-img-wrap">
-        <img src="images/robot-REX.jpg" alt="Robot REX" class="robot-photo">
+        <img src="images/robots/robot-rex.jpg" alt="Robot REX" class="robot-photo" loading="lazy">
       </div>
       <div class="robot-info">
         <div class="robot-year">2024 · Crescendo</div>
@@ -1624,7 +1675,7 @@
         <h3>Donate Now</h3>
         <p>Scan the QR code to donate via MySchoolBucks, or use the link below to support our road to Worlds.</p>
         <div class="qr-placeholder" style="padding: 10px; background: white;">
-          <img src="images/qr-code.png" alt="Donate QR Code" style="width: 100%; height: auto; display: block;">
+          <img src="images/support/qr-code.png" alt="Donate QR Code" style="width: 100%; height: auto; display: block;" loading="lazy">
         </div>
         <a href="https://tinyurl.com/CorbettRobotics" target="_blank" class="btn-primary" style="width:100%; justify-content:center; display:flex; margin-bottom: 16px;">
           Click here to donate today →
@@ -1711,6 +1762,20 @@
       link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--white)' : '';
     });
   });
+
+  // Hero background slideshow
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (heroSlides.length > 1 && !prefersReducedMotion) {
+    let heroIndex = 0;
+
+    setInterval(() => {
+      heroSlides[heroIndex].classList.remove('active');
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      heroSlides[heroIndex].classList.add('active');
+    }, 9000);
+  }
 
 // ── CAROUSEL LOGIC ──
   let slideIndex = 0;
