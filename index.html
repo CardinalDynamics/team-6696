@@ -366,6 +366,10 @@
   /* ── SECTION BASE ── */
   section { padding: 100px 80px; }
 
+  section[id], #current-season {
+    scroll-margin-top: 70px;
+  }
+
   .section-tag {
     font-family: var(--font-cond);
     font-size: 11px;
@@ -520,7 +524,7 @@
   }
 
   #current-season::before {
-    content: 'REBUILT';
+    content: 'BIOCORE';
     position: absolute;
     right: 40px;
     top: 50%;
@@ -1236,6 +1240,8 @@
     .history-row td:last-child, .history-header-row span:last-child { display: none; }
     #current-season { padding: 40px 24px; }
     .season-inner { flex-direction: column; align-items: flex-start; }
+    .season-events { width: 100%; flex-wrap: wrap; gap: 12px; }
+    .season-event { flex: 1 1 calc(50% - 12px); min-width: 140px; }
     footer { padding: 60px 24px 32px; }
   }
 
@@ -1270,8 +1276,8 @@
 </nav>
 
 <div class="worlds-banner">
-  <span>🚀 We had and incredible experience at FRC World Championships! <br> Help us rise to the next level!</span>
-  <a href="#support" class="btn-mini">Support our success today!  →</a>
+  <span>2026–2027 SEASON REVEALED: BIOCORE <br> Help us build what comes next!</span>
+  <a href="#support" class="btn-mini">Support the new season →</a>
 </div>
   
 <!-- ── HERO ── -->
@@ -1315,25 +1321,25 @@
 <div id="current-season">
   <div class="season-inner">
     <div class="season-left">
-      <div class="season-eyebrow">2025–2026 Season</div>
-      <h2>REBUILT</h2>
+      <div class="season-eyebrow">2026–2027 Season</div>
+      <h2>BIOCORE</h2>
     </div>
     <div class="season-events">
       <div class="season-event">
-        <div class="ev-week">Week 2 Event</div>
-        <div class="ev-name">Wilsonville</div>
+        <div class="ev-week">New Theme</div>
+        <div class="ev-name">BIOCORE</div>
       </div>
       <div class="season-event">
-        <div class="ev-week">Week 4 Event</div>
-        <div class="ev-name">Clackamas</div>
+        <div class="ev-week">Kickoff</div>
+        <div class="ev-name">January 2027</div>
       </div>
       <div class="season-event">
-        <div class="ev-week">Week 6 Event</div>
-        <div class="ev-name">PNW District Champs</div>
+        <div class="ev-week">Build Season</div>
+        <div class="ev-name">Coming Soon</div>
       </div>
       <div class="season-event">
-        <div class="ev-week">FRC</div>
-        <div class="ev-name">World Championships</div>
+        <div class="ev-week">Events</div>
+        <div class="ev-name">TBD</div>
       </div>
     </div>
     <a href="#history" class="btn-primary" style="background:rgba(0,0,0,0.3);border-color:rgba(255,255,255,0.4);">Full Schedule →</a>
@@ -1477,10 +1483,16 @@
       <span>Status</span>
     </div>
     <div class="history-row">
+      <div class="season-yr">2027</div>
+      <div class="season-game">BIOCORE</div>
+      <div class="season-events-list">Kickoff and events TBD</div>
+      <div><span class="season-badge current">Upcoming</span></div>
+    </div>
+    <div class="history-row">
       <div class="season-yr">2026</div>
-      <div class="season-game"><a href="https://www.thebluealliance.com/team/6696">Rebuilt</a></div>
+      <div class="season-game"><a href="https://www.thebluealliance.com/team/6696/2026">Rebuilt</a></div>
       <div class="season-events-list">Wilsonville · Clackamas· PNW Dcmp · Worlds Cmp</div>
-      <div><span class="season-badge current">In Progress</span></div>
+      <div><span class="season-badge">Completed</span></div>
     </div>
     <div class="history-row">
       <div class="season-yr">2025</div>
@@ -1673,7 +1685,7 @@
     <div class="support-right">
       <div class="donate-card reveal">
         <h3>Donate Now</h3>
-        <p>Scan the QR code to donate via MySchoolBucks, or use the link below to support our road to Worlds.</p>
+        <p>Scan the QR code to donate via MySchoolBucks, or use the link below to support the new BIOCORE season.</p>
         <div class="qr-placeholder" style="padding: 10px; background: white;">
           <img src="images/support/qr-code.png" alt="Donate QR Code" style="width: 100%; height: auto; display: block;" loading="lazy">
         </div>
