@@ -1,0 +1,20 @@
+{
+  "slug": "thank-you-supporters",
+  "title": "A team effort, on and off the field",
+  "category": "Team news",
+  "date": null,
+  "dateLabel": "From the team",
+  "published": true,
+  "featured": false,
+  "order": 3,
+  "image": "images/hero/hero-05.jpg",
+  "alt": "Cardinal Dynamics families, students, and supporters cheering in the stands",
+  "summary": "Our mentors, families, and local supporters make room for students to learn, build, and compete. Thank you for being part of Cardinal Dynamics.",
+  "paragraphs": [
+    "Cardinal Dynamics relies on the support of mentors, families, businesses, and community members. That support helps cover robot parts, registration fees, travel, and tools.",
+    "Thank you to Apple, Argosy Foundation, Microchip Technology, OnlineMetals.com, Troutdale Bikes, OSH Cut, Bandits Bar and Grill, and M & M Sourdough.",
+    "You can help through a donation, sponsorship, materials, tools, or mentoring. Contact the team to talk about how you would like to contribute."
+  ],
+  "relatedUrl": "../support.html",
+  "relatedLabel": "Meet our supporters"
+}

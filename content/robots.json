@@ -1,0 +1,23 @@
+[
+  {
+    "name": "S.A.M.", "year": 2026, "game": "REBUILT",
+    "image": "images/robots/sam-robot.jpg", "alt": "S.A.M., Cardinal Dynamics' 2026 competition robot",
+    "description": "Our 2026 REBUILT robot competed at Wilsonville, Clackamas, the PNW District Championships, and the FIRST World Championships.",
+    "events": ["Wilsonville", "Clackamas", "PNW District Championships", "FIRST World Championships"],
+    "resultsUrl": "https://www.thebluealliance.com/team/6696/2026"
+  },
+  {
+    "name": "ATM", "year": 2025, "game": "REEFSCAPE",
+    "image": "images/robots/atm-robot.png", "alt": "ATM, Cardinal Dynamics' 2025 competition robot",
+    "description": "Our 2025 REEFSCAPE robot competed at Clackamas and Wilsonville. This season, Cardinal Dynamics reached the PNW District Championships for the first time.",
+    "events": ["Clackamas", "Wilsonville", "PNW District Championships"],
+    "resultsUrl": "https://www.thebluealliance.com/team/6696/2025"
+  },
+  {
+    "name": "REX", "year": 2024, "game": "CRESCENDO",
+    "image": "images/robots/robot-rex.jpg", "alt": "REX, Cardinal Dynamics' 2024 competition robot",
+    "description": "Our 2024 CRESCENDO robot competed at Clackamas and Wilsonville and was part of the winning alliance at Clackamas.",
+    "events": ["Clackamas", "Wilsonville"],
+    "resultsUrl": "https://www.thebluealliance.com/team/6696/2024"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "slug": "sam-goes-to-worlds",
+  "title": "S.A.M. goes to Worlds",
+  "category": "Season updates",
+  "date": null,
+  "dateLabel": "2026 season",
+  "published": true,
+  "featured": true,
+  "order": 2,
+  "image": "images/carousel/team-03.jpg",
+  "alt": "Cardinal Dynamics students celebrating at competition",
+  "summary": "From Wilsonville and Clackamas to the FIRST World Championships, S.A.M. took Team 6696 through a memorable REBUILT season.",
+  "paragraphs": [
+    "Our 2026 robot, S.A.M., competed at Wilsonville, Clackamas, the PNW District Championships, and the FIRST World Championships in Houston.",
+    "The robot was designed, built, and programmed by Cardinal Dynamics students. The season brought together mechanical design, programming, strategy, and plenty of teamwork.",
+    "Thank you to the students, mentors, families, and supporters who made the season possible."
+  ],
+  "relatedUrl": "https://www.thebluealliance.com/team/6696/2026",
+  "relatedLabel": "View our 2026 competition results"
+}

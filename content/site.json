@@ -1,0 +1,68 @@
+{
+  "name": "Cardinal Dynamics",
+  "number": "6696",
+  "school": "Corbett High School",
+  "location": "Corbett, Oregon",
+  "email": "robotics@corbett.k12.or.us",
+  "donationUrl": "https://tinyurl.com/CorbettRobotics",
+  "githubUrl": "https://github.com/CardinalDynamics/team-6696",
+  "heroTitle": "Cardinal Dynamics",
+  "heroSubtitle": "Corbett High School Robotics - Corbett, OR",
+  "heroPhotos": [
+    { "image": "images/hero/current-team-photo.jpg", "alt": "Cardinal Dynamics students and mentors with a 2026 competition winner banner", "position": "center 34%" },
+    { "image": "images/hero/hero-04.jpg", "alt": "Cardinal Dynamics drive team watching a match", "position": "center 35%" },
+    { "image": "images/hero/hero-03.jpg", "alt": "S.A.M. on the 2026 competition field", "position": "center" },
+    { "image": "images/hero/hero-05.jpg", "alt": "Students and supporters cheering in the stands", "position": "center 35%" },
+    { "image": "images/hero/hero-01.jpg", "alt": "A Cardinal Dynamics student with team gifts at competition", "position": "center" },
+    { "image": "images/hero/hero-02.jpg", "alt": "A close view of the 6696 competition robot", "position": "center" }
+  ],
+  "carouselPhotos": [
+    { "image": "images/carousel/shop-1.jpg", "alt": "Students working on the robot in the shop" },
+    { "image": "images/carousel/shop-2.jpg", "alt": "Students building the chassis" },
+    { "image": "images/carousel/shop-3.jpg", "alt": "Students working together on the team" },
+    { "image": "images/carousel/team-01.jpg", "alt": "S.A.M. competing on the field" },
+    { "image": "images/carousel/team-02.jpg", "alt": "Cardinal Dynamics at competition" },
+    { "image": "images/carousel/team-03.jpg", "alt": "Cardinal Dynamics students celebrating together" },
+    { "image": "images/carousel/team-04.jpg", "alt": "The Cardinal Dynamics team at a competition" },
+    { "image": "images/carousel/team-05.jpg", "alt": "A moment from the Cardinal Dynamics season" }
+  ],
+  "currentSeason": {
+    "label": "2026-2027 season",
+    "name": "BIOCORE",
+    "kickoffDate": "2027-01-09",
+    "kickoffLabel": "January 9, 2027",
+    "kickoffSource": "https://www.firstinspires.org/programs/frc/game-and-season",
+    "eventNote": "Our competition schedule will be shared once dates are confirmed."
+  },
+  "teamIntro": "We're a student-led FIRST Robotics Competition team at Corbett High School in Corbett, Oregon, at the mouth of the scenic Columbia River Gorge. Since 2017, our students have designed, built, and programmed robots while learning how to solve problems together.",
+  "teamHeading": "Robotics in the classroom",
+  "teamParagraphs": [
+    "FRC is part of the curriculum at Corbett High School through an elective robotics course. Students apply what they learn in class to mechanical design, CAD, programming, electronics, and competition strategy.",
+    "Each January, a new FIRST Robotics Competition game starts another cycle of design, building, testing, and improvement. Our mentors help students develop the skills to turn their ideas into a working robot.",
+    "Every student has a real role and a chance to contribute, including marketing, social media, fundraising, and project management. Teamwork, communication, and learning from mistakes matter just as much as the robot we bring to the field."
+  ],
+  "teamRoles": [
+    { "title": "Design & build", "description": "Turn ideas into mechanisms through CAD, fabrication, and hands-on testing." },
+    { "title": "Code & electronics", "description": "Bring the robot to life with software, wiring, sensors, and controls." },
+    { "title": "Strategy & teamwork", "description": "Plan matches, solve problems, and help the team work together on and off the field." },
+    { "title": "Marketing & social media", "description": "Tell our team's story through photography, video, design, and social media. Help share our work and outreach with the community." },
+    { "title": "Fundraising & partnerships", "description": "Build relationships with supporters, help prepare sponsorship materials, and organize fundraising that makes the season possible." },
+    { "title": "Project management", "description": "Coordinate schedules, track tasks and budgets, and help technical and business teams work toward shared goals." }
+  ],
+  "faqs": [
+    { "question": "Who can join?", "answer": "Students who attend Corbett High School or live within the Corbett School District boundaries are welcome to join. Contact our coaches to learn how to get involved." },
+    { "question": "Do I need robotics experience?", "answer": "You can start with curiosity and a willingness to learn. Students work together across design, building, programming, and strategy with support from mentors." },
+    { "question": "When does the team meet?", "answer": "Contact the coaches for the current class and meeting schedule. Build and competition season will involve a significant time commitment outside regular class." },
+    { "question": "Can adults get involved?", "answer": "Yes. We welcome interest from technical and non-technical mentors. Email the team to talk about your interests and availability." }
+  ],
+  "coaches": [
+    { "name": "Coach Goude", "email": "zgoude@corbett.k12.or.us" },
+    { "name": "Coach Chiu", "email": "dchiu@corbett.k12.or.us" }
+  ],
+  "sponsorTiers": [
+    { "name": "Gold Supporter", "amount": "$2,500+" },
+    { "name": "Silver Supporter", "amount": "$1,000+" },
+    { "name": "Bronze Supporter", "amount": "$500+" },
+    { "name": "In-kind Donor", "amount": "Materials, tools, or expertise" }
+  ]
+}

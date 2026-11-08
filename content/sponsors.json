@@ -1,0 +1,10 @@
+[
+  { "name": "Apple", "url": "https://www.apple.com/", "image": null },
+  { "name": "Argosy Foundation", "url": "https://www.argosyfnd.org/", "image": null },
+  { "name": "Microchip Technology", "url": "https://www.microchip.com/", "image": null },
+  { "name": "OnlineMetals.com", "url": "https://www.onlinemetals.com/", "image": null },
+  { "name": "Troutdale Bikes", "url": "https://www.troutdalebikes.com/", "image": null },
+  { "name": "OSH Cut", "url": "https://www.oshcut.com/", "image": null },
+  { "name": "Bandits Bar and Grill", "url": "https://www.instagram.com/bandits_bar_an_grill/", "image": null },
+  { "name": "M & M Sourdough", "url": null, "image": null }
+]

@@ -1,0 +1,296 @@
+[
+  {
+    "year": 2017,
+    "source": "https://www.thebluealliance.com/team/6696/2017",
+    "verifiedAt": "2026-11-06",
+    "events": [
+      {
+        "name": "Clackamas Academy Event",
+        "url": "https://www.thebluealliance.com/event/2017orore",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      },
+      {
+        "name": "Lake Oswego Event",
+        "url": "https://www.thebluealliance.com/event/2017orlak",
+        "awards": [],
+        "selection": "2nd Pick",
+        "alliance": "Alliance 1",
+        "finish": "Semifinals"
+      }
+    ]
+  },
+  {
+    "year": 2018,
+    "source": "https://www.thebluealliance.com/team/6696/2018",
+    "verifiedAt": "2026-11-06",
+    "events": [
+      {
+        "name": "Clackamas Academy Event",
+        "url": "https://www.thebluealliance.com/event/2018orore",
+        "awards": [],
+        "selection": "Captain",
+        "alliance": "Alliance 8",
+        "finish": "Quarterfinals"
+      },
+      {
+        "name": "Wilsonville Event",
+        "url": "https://www.thebluealliance.com/event/2018orwil",
+        "awards": [],
+        "selection": "2nd Pick",
+        "alliance": "Alliance 8",
+        "finish": "Quarterfinals"
+      }
+    ]
+  },
+  {
+    "year": 2019,
+    "source": "https://www.thebluealliance.com/team/6696/2019",
+    "verifiedAt": "2026-11-06",
+    "events": [
+      {
+        "name": "Wilsonville Event",
+        "url": "https://www.thebluealliance.com/event/2019orwil",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      },
+      {
+        "name": "Clackamas Academy Event",
+        "url": "https://www.thebluealliance.com/event/2019orore",
+        "awards": [],
+        "selection": "Captain",
+        "alliance": "Alliance 8",
+        "finish": "Quarterfinals"
+      }
+    ]
+  },
+  {
+    "year": 2020,
+    "source": "https://www.thebluealliance.com/team/6696/2020",
+    "verifiedAt": "2026-11-06",
+    "events": [
+      {
+        "name": "Clackamas Academy Event",
+        "url": "https://www.thebluealliance.com/event/2020orore",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      }
+    ]
+  },
+  {
+    "year": 2021,
+    "source": "https://www.thebluealliance.com/team/6696/2021",
+    "verifiedAt": "2026-11-06",
+    "events": []
+  },
+  {
+    "year": 2022,
+    "source": "https://www.thebluealliance.com/team/6696/2022",
+    "verifiedAt": "2026-11-06",
+    "events": [
+      {
+        "name": "Clackamas Academy Event",
+        "url": "https://www.thebluealliance.com/event/2022orore",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      },
+      {
+        "name": "Wilsonville Event",
+        "url": "https://www.thebluealliance.com/event/2022orwil",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "source": "https://www.thebluealliance.com/team/6696/2023",
+    "verifiedAt": "2026-11-06",
+    "events": [
+      {
+        "name": "Clackamas Academy Event",
+        "url": "https://www.thebluealliance.com/event/2023orore",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      },
+      {
+        "name": "Wilsonville Event",
+        "url": "https://www.thebluealliance.com/event/2023orwil",
+        "awards": [],
+        "selection": "2nd Pick",
+        "alliance": "Alliance 1",
+        "finish": "Double Elimination Bracket (Round 5)"
+      },
+      {
+        "name": "Oregon Girls' Generation",
+        "url": "https://www.thebluealliance.com/event/2023orgg",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      },
+      {
+        "name": "FIRST Chance",
+        "url": "https://www.thebluealliance.com/event/2023orwv",
+        "awards": [],
+        "selection": "2nd Pick",
+        "alliance": "Alliance 1",
+        "finish": "Double Elimination Bracket (Round 3)"
+      },
+      {
+        "name": "BunnyBots",
+        "url": "https://www.thebluealliance.com/event/2023orbb",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      }
+    ]
+  },
+  {
+    "year": 2024,
+    "source": "https://www.thebluealliance.com/team/6696/2024",
+    "verifiedAt": "2026-11-06",
+    "events": [
+      {
+        "name": "Clackamas Academy Event",
+        "url": "https://www.thebluealliance.com/event/2024orore",
+        "awards": [
+          "District Event Winner"
+        ],
+        "selection": "2nd Pick",
+        "alliance": "Alliance 2",
+        "finish": "Winner"
+      },
+      {
+        "name": "Wilsonville Event",
+        "url": "https://www.thebluealliance.com/event/2024orwil",
+        "awards": [],
+        "selection": "2nd Pick",
+        "alliance": "Alliance 7",
+        "finish": "Double Elimination Bracket (Round 2)"
+      },
+      {
+        "name": "Storm Surge",
+        "url": "https://www.thebluealliance.com/event/2024wass",
+        "awards": [],
+        "selection": "Captain",
+        "alliance": "Alliance 4",
+        "finish": "Double Elimination Bracket (Round 3)"
+      },
+      {
+        "name": "Oregon BunnyBots",
+        "url": "https://www.thebluealliance.com/event/2024orbb",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      }
+    ]
+  },
+  {
+    "year": 2025,
+    "source": "https://www.thebluealliance.com/team/6696/2025",
+    "verifiedAt": "2026-11-06",
+    "events": [
+      {
+        "name": "Clackamas Academy Event",
+        "url": "https://www.thebluealliance.com/event/2025orore",
+        "awards": [],
+        "selection": "Captain",
+        "alliance": "Alliance 3",
+        "finish": "Double Elimination Bracket (Round 5)"
+      },
+      {
+        "name": "Wilsonville Event",
+        "url": "https://www.thebluealliance.com/event/2025orwil",
+        "awards": [
+          "Team Spirit Award"
+        ],
+        "selection": "1st Pick",
+        "alliance": "Alliance 6",
+        "finish": "Double Elimination Bracket (Round 4)"
+      },
+      {
+        "name": "PNW District Championship",
+        "url": "https://www.thebluealliance.com/event/2025pncmp",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      },
+      {
+        "name": "FIRST Chance",
+        "url": "https://www.thebluealliance.com/event/2025orwv",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      },
+      {
+        "name": "StormSurge",
+        "url": "https://www.thebluealliance.com/event/2025wass",
+        "awards": [],
+        "selection": "2nd Pick",
+        "alliance": "Alliance 3",
+        "finish": "Double Elimination Bracket (Round 3)"
+      }
+    ]
+  },
+  {
+    "year": 2026,
+    "source": "https://www.thebluealliance.com/team/6696/2026",
+    "verifiedAt": "2026-11-06",
+    "events": [
+      {
+        "name": "Wilsonville Event",
+        "url": "https://www.thebluealliance.com/event/2026orwil",
+        "awards": [
+          "District Event Winner"
+        ],
+        "selection": "1st Pick",
+        "alliance": "Alliance 1",
+        "finish": "Winner"
+      },
+      {
+        "name": "Clackamas Academy Event",
+        "url": "https://www.thebluealliance.com/event/2026orore",
+        "awards": [
+          "District Engineering Inspiration Award sponsored by SpaceX",
+          "District Event Winner"
+        ],
+        "selection": "Captain",
+        "alliance": "Alliance 1",
+        "finish": "Winner"
+      },
+      {
+        "name": "PNW District Championship",
+        "url": "https://www.thebluealliance.com/event/2026pncmp",
+        "awards": [],
+        "selection": "1st Pick",
+        "alliance": "Alliance 8",
+        "finish": "Double Elimination Bracket (Round 3)"
+      },
+      {
+        "name": "Daly Division",
+        "url": "https://www.thebluealliance.com/event/2026dal",
+        "awards": [],
+        "selection": null,
+        "alliance": null,
+        "finish": null
+      }
+    ]
+  }
+]

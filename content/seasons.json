@@ -1,0 +1,12 @@
+[
+  { "year": 2027, "game": "BIOCORE", "events": [], "status": "Upcoming" },
+  { "year": 2026, "game": "REBUILT", "events": ["Wilsonville", "Clackamas", "PNW District Championships", "World Championships"], "status": "Completed" },
+  { "year": 2025, "game": "REEFSCAPE", "events": ["Clackamas", "Wilsonville", "PNW District Championships"], "status": "Completed" },
+  { "year": 2024, "game": "CRESCENDO", "events": ["Clackamas", "Wilsonville"], "status": "Completed" },
+  { "year": 2023, "game": "CHARGED UP", "events": ["Clackamas", "Wilsonville"], "status": "Completed" },
+  { "year": 2022, "game": "RAPID REACT", "events": ["Clackamas", "Wilsonville"], "status": "Completed" },
+  { "year": 2020, "game": "INFINITE RECHARGE", "events": ["Clackamas Academy; season subsequently interrupted by COVID-19"], "status": "Interrupted" },
+  { "year": 2019, "game": "DESTINATION: DEEP SPACE", "events": [], "status": "Completed" },
+  { "year": 2018, "game": "FIRST POWER UP", "events": [], "status": "Completed" },
+  { "year": 2017, "game": "FIRST STEAMWORKS", "events": [], "status": "Rookie season" }
+]
