@@ -7,5 +7,5 @@
   { "name": "OSH Cut", "url": "https://www.oshcut.com/", "image": null },
   { "name": "Bandits Bar and Grill", "url": "https://www.instagram.com/bandits_bar_an_grill/", "image": null },
   { "name": "M & M Sourdough", "url": null, "image": null },
-  { "name": "<a href="https://www.rmfg.com"><img src="https://www.rmfg.com/RMFG-V2-Wordmark-Green-On-Black.png" alt="RMFG" width="200"></a>", "url": null, "image": null }
+  { "name": <a href="https://www.rmfg.com"><img src="https://www.rmfg.com/RMFG-V2-Wordmark-Green-On-Black.png" alt="RMFG" width="200"></a>", "url": null, "image": null }
 ]
