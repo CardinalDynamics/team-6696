@@ -108,14 +108,18 @@ document.querySelectorAll('[data-sponsor-marquee]').forEach(section => {
     section.classList.toggle('is-paused', paused || document.hidden);
   };
   pause.addEventListener('click', () => { paused = !paused; sync(); });
-  section.addEventListener('focusin', event => {
+  window.addEventListener('focusin', event => {
     if (event.target.matches(':focus-visible')) section.classList.add('is-browsing');
   });
-  section.addEventListener('focusout', event => {
-    if (!section.contains(event.relatedTarget)) {
+  window.addEventListener('focusout', event => {
+    if (!window.contains(event.relatedTarget)) {
       section.classList.remove('is-browsing');
       window.scrollLeft = 0;
     }
+  });
+  section.addEventListener('pointerdown', () => {
+    section.classList.remove('is-browsing');
+    window.scrollLeft = 0;
   });
   motion.addEventListener('change', sync);
   const resize = () => {

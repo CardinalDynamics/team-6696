@@ -111,8 +111,7 @@ a.sponsor-tile:hover { color: var(--red); background: #fff; text-decoration: und
 .sponsor-pause[aria-pressed="true"] .icon:last-child { display: block; }
 .supporters-home.is-ready .sponsor-window { overflow-x: hidden; mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
 .supporters-home.is-ready .sponsor-track { animation: sponsor-drift var(--sponsor-duration, 76s) linear infinite; }
-.supporters-home:hover .sponsor-track,
-.supporters-home:focus-within .sponsor-track,
+.sponsor-window:hover .sponsor-track,
 .supporters-home.is-paused .sponsor-track,
 .supporters-home.is-outside .sponsor-track { animation-play-state: paused; }
 .supporters-home.is-browsing .sponsor-track { animation: none; }
