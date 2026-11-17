@@ -83,7 +83,13 @@ function layout({ title, description, current, content, prefix = '' }) {
 </html>`.replace(/[ \t]+$/gm, '');
 }
 const pageHead = (title, introduction) => `<section class="page-heading"><div class="container"><h1>${escape(title)}</h1><p class="lead">${escape(introduction)}</p></div></section>`;
-const sectionHead = (title, href, label) => `<div class="section-heading"><h2>${escape(title)}</h2>${href ? link(href, label) : ''}</div>`;
+const sectionHead = (title, href, label, controls = '') => `<div class="section-heading"><h2>${escape(title)}</h2>${controls ? `<div class="heading-actions">${href ? link(href, label) : ''}${controls}</div>` : href ? link(href, label) : ''}</div>`;
+function sponsorStrip() {
+  return `<div class="sponsor-window" tabindex="0" role="region" aria-label="Our supporters"><div class="sponsor-track"><ul class="sponsor-set">${sponsors.map(sponsor => {
+    const content = sponsor.image ? image(sponsor.image, sponsor.name, 'sponsor-logo') : `<span>${escape(sponsor.name)}</span>`;
+    return `<li class="sponsor-slot">${sponsor.url ? `<a href="${escape(sponsor.url)}">${content}</a>` : content}</li>`;
+  }).join('')}</ul></div></div>`;
+}
 function sponsorGrid(prefix = '') {
   return `<div class="sponsors-grid">${sponsors.map(sponsor => {
     const content = sponsor.image ? image(sponsor.image, sponsor.name, 'sponsor-logo', prefix) : `<span>${escape(sponsor.name)}</span>`;
@@ -121,7 +127,7 @@ const home = `
   <section class="season-strip" aria-label="Current season"><div class="container"><p><strong>${escape(site.currentSeason.label)}:</strong> ${escape(site.currentSeason.name)}</p>${link('news.html#season', 'Season updates')}</div></section>
   <section class="section"><div class="container">${sectionHead('Around the team', 'news.html', 'All news & events')}<div class="news-grid home-news">${featured.map(post => postPreview(post)).join('')}</div></div></section>
   <section class="section surface"><div class="container robot-feature">${image(robots[0].image, robots[0].alt, 'feature-image')}<div><h2>Meet S.A.M.</h2><p class="lead">Designed, built, and programmed by our students for the 2026 REBUILT season.</p><p>From the first design to the competition field, every robot is a chance to learn something new together.</p>${link('robots.html', 'Our robots & season history')}</div></div></section>
-  <section class="section supporters-home"><div class="container">${sectionHead('Our supporters', 'support.html', 'Become a supporter')}${sponsorGrid()}</div></section>`;
+  <section class="section supporters-home" data-sponsor-marquee><div class="container">${sectionHead('Our supporters', 'support.html', 'Become a supporter', `<button type="button" class="icon-button sponsor-pause" data-sponsor-pause aria-label="Pause sponsor rotation" title="Pause sponsor rotation" aria-pressed="false" hidden>${icon('pause')}${icon('play')}</button>`)}${sponsorStrip()}</div></section>`;
 const team = `
   ${pageHead('Our team', site.teamIntro)}
   <section class="section compact"><div class="container team-intro"><div class="prose"><h2>${escape(site.teamHeading)}</h2>${paragraphs(site.teamParagraphs)}${link('https://www.firstinspires.org/programs/frc/', 'Learn about FIRST Robotics Competition')}</div>${slideshow(site.carouselPhotos, 'Life on the team')}</div></section>

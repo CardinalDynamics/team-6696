@@ -59,6 +59,8 @@ Add an entry to `content/sponsors.json`:
 
 Use a real HTTPS website address when available; otherwise keep `url` as `null`.
 Add supplied logos under `images/sponsors/` and set `image` to the file's path.
+Leave `image` as `null` to display the sponsor's name instead. The same entries
+populate the homepage's rotating strip and the Support page's stationary grid.
 Confirm the sponsor's name and sponsorship details with a coach.
 
 ## Add photos

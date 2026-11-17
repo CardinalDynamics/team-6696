@@ -1,10 +1,11 @@
 [
-  { "name": "Apple", "url": "https://www.apple.com/", "image": null },
-  { "name": "Argosy Foundation", "url": "https://www.argosyfnd.org/", "image": null },
-  { "name": "Microchip Technology", "url": "https://www.microchip.com/", "image": null },
-  { "name": "OnlineMetals.com", "url": "https://www.onlinemetals.com/", "image": null },
-  { "name": "Troutdale Bikes", "url": "https://www.troutdalebikes.com/", "image": null },
-  { "name": "OSH Cut", "url": "https://www.oshcut.com/", "image": null },
+  { "name": "Apple", "url": "https://www.apple.com/", "image": "images/sponsors/apple.svg" },
+  { "name": "Argosy Foundation", "url": "https://www.argosyfnd.org/", "image": "images/sponsors/argosy.png" },
+  { "name": "Microchip Technology", "url": "https://www.microchip.com/", "image": "images/sponsors/Microchip-Logo-Horizontal-Black-Red.png" },
+  { "name": "OnlineMetals.com", "url": "https://www.onlinemetals.com/", "image": "images/sponsors/online-metals.svg" },
+  { "name": "Troutdale Bikes", "url": "https://www.troutdalebikes.com/", "image": "images/sponsors/troutdale-bikes.png" },
+  { "name": "OSH Cut", "url": "https://www.oshcut.com/", "image": "images/sponsors/oshcut.svg" },
+  { "name": "RMFG", "url": "https://www.rmfg.com/", "image": "images/sponsors/rmfg.svg" },
   { "name": "Bandits Bar and Grill", "url": "https://www.instagram.com/bandits_bar_an_grill/", "image": null },
   { "name": "M & M Sourdough", "url": null, "image": null }
 ]

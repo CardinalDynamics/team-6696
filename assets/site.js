@@ -85,6 +85,53 @@ document.querySelectorAll('[data-news-list]').forEach(list => {
   });
 });
 
+document.querySelectorAll('[data-sponsor-marquee]').forEach(section => {
+  const track = section.querySelector('.sponsor-track');
+  const original = section.querySelector('.sponsor-set');
+  const window = section.querySelector('.sponsor-window');
+  const pause = section.querySelector('[data-sponsor-pause]');
+  if (!original || original.children.length < 2) return;
+  const copy = original.cloneNode(true);
+  copy.setAttribute('aria-hidden', 'true');
+  copy.querySelectorAll('a').forEach(anchor => anchor.tabIndex = -1);
+  copy.querySelectorAll('img').forEach(img => img.alt = '');
+  track.append(copy);
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  let paused = false;
+  let overflowing = true;
+  const sync = () => {
+    pause.hidden = motion.matches || !overflowing;
+    pause.setAttribute('aria-pressed', String(paused));
+    const label = paused ? 'Play sponsor rotation' : 'Pause sponsor rotation';
+    pause.setAttribute('aria-label', label);
+    pause.title = label;
+    section.classList.toggle('is-paused', paused || document.hidden);
+  };
+  pause.addEventListener('click', () => { paused = !paused; sync(); });
+  section.addEventListener('focusin', event => {
+    if (event.target.matches(':focus-visible')) section.classList.add('is-browsing');
+  });
+  section.addEventListener('focusout', event => {
+    if (!section.contains(event.relatedTarget)) {
+      section.classList.remove('is-browsing');
+      window.scrollLeft = 0;
+    }
+  });
+  motion.addEventListener('change', sync);
+  const resize = () => {
+    const width = original.getBoundingClientRect().width;
+    overflowing = width > window.clientWidth;
+    copy.hidden = !overflowing;
+    section.classList.toggle('is-ready', overflowing);
+    track.style.setProperty('--sponsor-duration', Math.max(40, width / 25) + 's');
+    sync();
+  };
+  new ResizeObserver(resize).observe(window);
+  new IntersectionObserver(entries => section.classList.toggle('is-outside', !entries[0].isIntersecting)).observe(section);
+  document.addEventListener('visibilitychange', sync);
+  resize();
+});
+
 function revealSeason() {
   if (!location.hash.startsWith('#season-')) return;
   const season = document.getElementById(location.hash.slice(1));
